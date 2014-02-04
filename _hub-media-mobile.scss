@@ -1,0 +1,57 @@
+.col1-hub {
+	.hubMain, .srpMap, .hub-tab {
+		width: 100%;
+	}
+	.srpMap {
+		display:none;
+	}
+	div.heroImg {display: none;}
+	.overlayInfo .overlayBody {
+		width:100%;
+		.toolTip {
+			min-width: 49%;
+		}
+	}
+}
+
+.col1-hub, .col2-srp {
+	.hero {
+		text-align: center;
+		h2 {margin: 0;}
+		h4 {a{display: block;}}
+		&:hover {
+			h4 {a{color: #fff;}}
+		}
+	}
+}
+
+
+
+// dash split
+// hero
+.hero { 
+	.h-createAd {
+		padding: 4em 1.6em;
+		.btn.next {
+			bottom: 0;
+			width: 100%;
+		}
+		input[type="text"].inH {
+			font-size: 1.4em;
+		}
+	}
+	.inB, .inH, .fakeBtn {
+		width: 100%;
+	}
+	.imgMask {
+		display: none;
+	}
+	.changeImg {
+		display: none;
+	}
+}
+
+
+.hero .h-createAd input[type="text"], .hero .h-createAd input[type="number"], .hero .h-createAd input[type="email"], .hero .h-createAd input[type="password"], .hero .h-createAd textarea, .hero .h-createAd .subTool {
+	width: 100%;
+}

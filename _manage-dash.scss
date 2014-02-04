@@ -1,0 +1,274 @@
+.inerH100 {
+	height: 100%;
+	background-color: #ffffff;
+	padding: 0 3.6em 3.6em 3.6em;
+	// @extend %clear;
+}
+
+// button absolute
+%btnAbsolute {
+	margin: 0 0 3em 0;
+	position: relative;
+	& .btn {
+		position: absolute;
+		bottom: -2.4em;
+		right: 0;
+		&.cancel {
+			right: 3.76em;
+		}
+	}
+}
+
+// save
+.save {
+	background-color: $blue;
+	height: 100%;
+	width: 22%;
+	color: #ffffff;
+	position: absolute;
+	right: 0;
+	top: 0;
+	line-height: 100%;
+	text-align: center;
+	padding: .8em 0;
+	font-weight: bold;
+	cursor: pointer;
+	// loader
+	.loader {
+		height: 74%;
+    	margin: 0.4em;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	&:hover {
+		background-color: $green;
+	}
+}
+
+// list
+.list {
+	@extend %btnAbsolute;
+	@extend %clear;
+	.result {
+		// width: 54%;
+		width: 748px;
+		overflow: visible;
+		@extend %clear;
+		float: left;
+		clear: left;
+		overflow: visible;
+		position: relative;
+		@extend %nthBg;
+		border-color: darken($sub-bar, 20%);
+		border-style: solid;
+		border-width: 4px;
+		border-right: 0;
+		border-bottom: 0;
+		border-top: 0;
+		padding: 0 0.3em 0 0;
+		&.mainHero {
+			width: 68%;
+			float: left;
+			height: 240px;
+			background-color: lighten($gray, 40%);
+		}
+		h2, select, .price, .amount {
+			float: left;
+			border: 0 none;
+			border-right: 1px solid $blue;
+		}
+		select, h2 {
+			width: 34%;
+			min-width: 180px;
+			margin: 0;
+			padding: .8em 2em .8em 0.3em;
+			background-color: transparent;
+			background-position: 100% 96%;
+			background-image: url(../images/MC-DB-sprite.png);	
+		}
+		h2 {
+			background-image: none;
+			padding: 0.9em .6em;
+			font-size: 1em;
+			color: #757575;
+			font-weight: normal;
+		}
+		.remove, .edit, .add {
+			margin: .3em 0;
+			cursor: pointer;
+			float: right;
+			.icon {
+				height: 2em;
+				width: 2em;
+			}
+			&:hover {
+				background-color: lighten($blue, 10%);
+			}
+		}
+		.edit {
+			background-color: $green;
+			.icon {background-position: 0 -38px;}
+		}
+		.add {
+			background-color: $green;
+			.icon {background-position: -214px -550px;}
+		}
+		.remove {
+			background-color: lighten($gray, 20%);
+			.icon {background-position: 0 -82px;}
+		}
+		.price {
+			color: $blue;
+			width: 12%;
+			min-width: 124px;
+			text-align: center;
+			padding: .9em 0.3em;
+			margin: 0 .3em 0 0;
+		}
+		.amount {
+			width: 10%;
+			min-width: 80px;
+			float: left;
+			padding: 0.9em 0.3em 0.9em 0.3em;
+			.bar1, .bar2, .bar3, .bar4 {
+				background-color: lighten($gray, 40%);
+				height: 1em;
+				margin: 0 4px 0 0;
+			    position: relative;
+			    width: 8px;
+				float: left;
+				cursor: pointer;
+				&:after {
+					background-color: $green;
+					content: "100%";
+					position: absolute;
+					display: none;
+					top: -1.6em;
+					padding: .2em;
+					color: #fff;
+				}
+				// &:before {
+				// 	content: "";
+				// 	@extend %iconDashboardBg;
+				// 	background-position: -211px -5575px;
+				//     content: "";
+				//     display: none;
+				//     height: 10px;
+				//     position: absolute;
+				//     top: -10px;
+				//     width: 10px;
+				// }
+				&:hover {
+					background-color: $green;
+					&:after {
+						display: block;
+					}
+				}
+			}
+			.bar1:hover { &:after {content: "25%";} }
+			.bar2:hover { &:after {content: "50%";} }
+			.bar3:hover { &:after {content: "75%";} }
+			.bar4:hover { &:after {content: "100%";} }
+			&.s25 {.bar1 {background-color: $blue; &:hover {background-color: $green;}}}
+			&.s50 {.bar1, .bar2 {background-color: $blue; &:hover {background-color: $green;}}}
+			&.s75 {.bar1, .bar2, .bar3 {background-color: $blue; &:hover {background-color: $green;}}}
+			&.s100 {.bar1, .bar2, .bar3, .bar4 {background-color: $blue; &:hover {background-color: $green;}}}
+			b {float: left;margin: 0 .4em}
+		}
+		&:nth-child(2n+1) {
+			border-color: darken($sub-bar, 10%);
+			select, .price {
+				border-right: 1px solid lighten($blue, 20%);
+			}
+		}
+		&:hover {
+			background-color: #fff;
+			color: lighten($gray, 40%);
+		}
+	}
+}
+
+// heroDesign
+.heroDesign {
+	display: none;
+	.hero {
+		margin: 0;
+		max-width: 700px;
+		background-color: transparent;
+		.h-createAd {
+			@include box-shadow(0 0 10px rgba(0,0,0,.2)); 
+			display: block;
+    		margin: 0 0 0 2%;
+		}
+		.btn {
+			@extend %btnAbsolute;
+			float: right;
+			margin: 0;
+		}
+	}
+		// width: 54%;
+		// max-width: 640px;
+		// padding: 2%;
+		// @extend %btnAbsolute;
+		// &:hover {
+		// 	background-color: $gray;
+		// }
+		// .inH {
+		// 	color: $blue;
+		// }
+		// .changeImg {
+		// 	color: $blue;
+		// 	display: block;
+		// 	width: 20%;
+		// 	text-align: center;
+		// 	cursor: pointer;
+		// 	margin: .2em 0 0 0;
+		// 	&:hover {
+		// 		color: #ffffff;
+		// 		text-decoration: underline;
+		// 	}
+		// }
+	// 	&.customHeadline {
+	// 		float: left;
+	// 		input[type="text"], input[type="number"], input[type="email"], input[type="password"], textarea, .subTool{
+	// 			background: none;
+	// 			border-color: #E5E5E5;
+	// 			border-color: rgba(255,255,255,.2);
+	// 			border-style: dashed;
+	// 			border-width: 2px;
+	// 			color:#fff;
+	// 			width: 76%;
+	// 			float: right;
+	// 			 &:focus {
+	// 			    border-color: #ffffff;
+	// 			    background-color: $gray;
+	// 			}
+	// 			&.inH {
+	//     			font-size: 2.4em;
+	//     			padding: .2em;
+	//     			color: $blue;
+	//     			font-weight: bold;
+	// 			}
+	// 			&.fakeBtn {
+	// 				background-color: $blue;
+	// 				text-align: center;
+	// 				font-weight: bold;
+	// 				font-size: 1.2em;
+	// 			}
+	// 		}
+	// 		.inB {}
+	// 		textarea {
+	// 		    min-height: 62px;
+	// 		}
+	// 	}
+	// 	& .imgMask{
+	// 		width: 20%;
+	// 		padding: 0 0 20% 0;
+	// 		height: 0;
+	// 		margin: 0;
+	// 		float: none;
+	// 		box-shadow: 0 0 20px rgba(0,0,0,.4);
+	// 	}
+	// }
+}

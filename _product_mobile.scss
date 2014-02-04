@@ -1,0 +1,74 @@
+.products {
+	height: auto;
+	.result {
+		width: 100%;
+		max-width: 1200px;
+		min-width: 0;
+	}
+}
+.heroDash {display: none;}
+.hero {
+	.imgMask {
+		display: none;
+	}
+}
+
+
+// menu
+.dashNav {
+	height: auto;
+	display: none;
+	.tab {
+		width: 100%;
+		// &:hover .menu {
+		// 	display: block;
+		// 	position: relative;
+		// 	width: 100%;
+		// }
+	}
+}
+.dashHeader, .dashMain, .dashNav {
+	.open & {width: 100%;}
+	width: 100%;
+}
+
+
+// 
+.dec-product {
+	padding: 0 10% 10% 10%;
+	height: auto;
+	& > .icon {
+		border:0;
+		display: block;
+		float: none;
+		margin: 4% auto;
+	}
+	h2 {
+		width: 100%;
+	}
+	.btn {
+		margin: 4% 0;
+	}
+	& > h3, & > ul, & > .disclaimer {
+		margin: 0;
+	}
+}
+
+
+// 
+.hero .h-createAd input[type="text"], .hero .h-createAd input[type="number"], .hero .h-createAd input[type="email"], .hero .h-createAd input[type="password"], .hero .h-createAd textarea, .hero .h-createAd .subTool {
+	width: 100%;
+}
+
+
+// overlay 
+.overlay {
+    left: 0;
+    max-width: 710px;
+    min-width: 0;
+    padding: 2%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}

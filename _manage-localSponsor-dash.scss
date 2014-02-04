@@ -1,0 +1,56 @@
+.geoBox{
+	width: 620px;
+	margin: 0 0 0 3%;
+	h4, h5 {	
+		width: 300px;
+		float: left;
+		font-size: 1.4em;
+		line-height: 1.6em;
+	}
+	h5 {
+		float: right;
+	}
+	.addMe, .removeMe {
+	    background: none repeat scroll 0 0 #FFFFFF;
+	    border: 4px solid #d9d9d8;
+	    float: left;
+	    height: 200px;
+	    margin: 0 0 2%;
+	    overflow-x: hidden;
+	    overflow-y: scroll;
+	    padding: 0;
+	    position: relative;
+	    width: 300px;
+	    li {
+		    background: url("../images/MC-DB-Sprite.png") no-repeat scroll -216px -499px rgba(0, 0, 0, 0);
+		    color: #011931;
+		    cursor: pointer;
+		    display: block;
+		    font-size: 0.9em;
+		    font-weight: 700;
+		    line-height: 1.4em;
+		    padding: 1% 2% 1% 8%;
+		    position: relative;
+		    width: 200%;
+		    &:hover, &.active {
+			    background-position: -216px -473px;
+			    background-color: #9dd069;		    
+			    color: #ffffff;
+			}
+		}
+	}
+	.removeMe {
+	    clear: right;
+	    float: right;
+    	li {
+		    background-position: -250px -525px;
+		    padding: 1% 2%;
+		    &:hover {
+			    background-position: -215px -525px;
+			    background-color: #f55a4c;		    
+			    color: #ffffff;
+			    padding:1% 2% 1% 8%;
+			}
+		}
+    }
+}

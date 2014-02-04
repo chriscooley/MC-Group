@@ -1,0 +1,893 @@
+// body height 100%
+html, body, .dashMain {
+	height: 100%;
+}
+
+// global dashboard icon sprite
+.icon {@extend %iconDashboardBg;}
+
+.close {
+	background-color:$blue; 
+    font-size: 3.4em;
+    line-height: 1em;
+    overflow: hidden;
+    padding: 0.2em 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 1.4em;
+    cursor: pointer;
+    color: #fff;
+    &:hover {
+    	background-color: $red;
+    }
+}
+// btn
+.btn {
+	padding: .5em;
+	font-size: 1em;
+	font-weight: bold;
+	color: #fff;
+	background-color: $blue;
+	border: 0 none;
+	cursor: pointer;
+	display: inline-block;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	-ms-appearance:none;
+	-o-appearance:none;
+	appearance:none;
+	@include border-radius(0);
+	b {
+		background-color: #ffffff;
+		color: $blue;
+		font-size: 84%;
+    	padding: 0.2em 0.4em;
+	}
+	&:hover {
+		color: #fff;
+		background-color: $green;
+		b {
+			color: $green;
+		}
+	}
+	&.cancel {
+		background-color: lighten($gray, 40%);
+		&:hover {
+			background-color: $red;
+		}
+	}
+}
+
+// terms
+.terms {clear:both;font-size: .8em;}
+
+// bubble red
+.bubble {
+	left: 70%;
+	top: -6px;
+	@extend %countUi;
+}
+
+// overlay
+.overlay {
+	background-color: #fff;
+	padding: 2%;
+	width: 40%;
+	max-width: 640px;
+	position: fixed;
+	left: 30%;
+	top: 0;
+	z-index: 9999;
+	// overflow: hidden;
+	display: none;
+	min-width: 640px;
+	@include box-shadow(0 0 30px rgba(0,0,0,.2));
+	h2 {
+		margin: 0 0 2% 0;
+	}
+	& > h3 {
+		width: 100%;
+		clear: both;
+		padding: 0 0 1% 0;
+	}
+	& > i {
+		display: block;
+		text-align: right;
+		clear: both;
+	}
+	.radio {
+		text-align: right;
+		width: 100%;
+		padding: 1% 0 0 0;
+		input[type="radio"], label {
+			margin: 0 0 0 1%;
+		}
+	}
+	.btn {
+		float: right;
+		text-transform:uppercase;
+		margin: 2% 0 0 0;
+	}
+	.creditWrap {
+		width: 49%;
+		float: left;
+		span {
+			@extend %iconDashboardBg;
+			display: block;
+			width: 63px;
+			height: 36px;
+			float: left;
+			&.discover {background-position: 100% 0;}
+			&.amex {background-position: 100% -131px;}
+			&.master {background-position: 100% -87px;}
+			&.visa {background-position: 100% -44px;}
+		}
+	}
+	.toolBody {
+		@include box-shadow(0 0 30px rgba(0,0,0,.2));
+	}
+
+	& > h4 {
+		clear: both;
+		float: left;
+		width: 100%;
+		margin: 2% 0 1% 0;
+	}
+	.termSel {
+		margin: 0;
+		float: left;
+		padding: .8em;
+		background-color: #f2f2f2;
+		border-color: lighten($blue, 30%);
+		text-align: left;
+		cursor: pointer;
+		position: relative;
+		white-space: nowrap;
+		&.monthly {
+			width: 23%;
+		}
+		&.quarterly {
+			width: 38%;
+			margin: 0 2%;
+		}
+		&.yearly {
+			width: 35%;
+			&:after {
+				@extend %iconDashboardBg;
+				background-position: 100% 100%;
+				height: 37px;
+				width:37px;
+				content: "";
+				position: absolute;
+				top: -2px;
+				right: -3px;
+			}
+		}
+		b {color: $blue; margin: 0 3px;}
+		&:hover, &.active {
+			background-color: $blue;
+			color: #fff;
+			b {color: #fff;}
+			&.yearly {&:after {background-position: 100% -5523px;}}
+		}
+		input[type="radio"] {
+			display: inline-block;
+			margin: 0 3px 0 0;
+		}
+	}
+	& > label {
+	    clear: both;
+	    display: block;
+	    float: right;
+	    font-style: italic;
+	    margin: 3% 0 0;
+	    text-align: right;
+	    width: 100%;
+	    font-size: 90%;
+	    line-height: 1.4em;
+	}
+	&.noCard {
+		.confirm_purchase {clear: both;}
+	}
+}
+
+// body dashboard
+.dashboard {
+	.icon {
+		display: inline-block;
+		&.lo {background-position: 50% 0;}
+		&.ml {background-position: 0 -130px;}
+		&.av {background-position: 0 -180px;}
+		&.pb {background-position: 0 -230px;}
+		&.pr {background-position: 0 -280px;}
+		&.nw {background-position: 0 -380px;}
+		&.ha {background-position: 0 -430px;}
+		&.lm {background-position: 0 -480px;}
+		&.ma {background-position: 0 -530px;}
+ 	}
+ 	.one, .one2, .one3, .one4 {
+ 		float: left;
+ 	}
+ 	.one {
+ 		width: 100%;
+ 		margin: 0 0 2% 0;
+ 	}
+ 	.one2 {
+ 		width: 49%;
+ 		margin: 0 2% 2% 0;
+ 		&:nth-child(2n+1) {margin: 0 0 2% 0;}
+ 	}
+ 	.one3 {
+ 		width: 32%;
+ 		min-width: 0;
+ 		margin: 0 2% 2% 0;
+ 		// .toolTip&:nth-child(4n) {margin: 0 0 2% 0;}
+ 	}
+ 	.toolTip.one4, .one4 {
+ 		width: 23.5%;
+ 		margin: 0 2% 2% 0;
+ 	}
+	.state-cc {
+ 		width: 27%;
+ 		float: left;
+ 		margin: 0 0 2.5% 0;
+ 	}
+ 	.toolTip.email-cc {
+ 		float: right;
+ 		width: 49%;
+ 		margin: 0 0 2% 0;
+ 	}
+ 	.toolTip.zip-cc {
+ 		float: right;
+ 		margin: 0 0 2% 0;
+ 		width: 20%;
+ 	}
+ 	.phone-cc {
+ 		float: left;
+ 		clear: both;
+ 		margin: 0 2% 2% 0;
+ 		width: 49%;
+ 	}
+}
+
+.imgMask {
+	@extend %imgMask;
+	margin: 0 6% 0 0;
+	overflow: hidden;
+	@include box-shadow(0 0 10px rgba(0,0,0,.2)); 
+	position: relative;
+}
+
+// dashboard col
+.dashHeader {
+	width: 90%;
+	float: right;
+	padding: 1.36em 0;
+	background-color: $gray;
+	position: relative;
+	& > .imgMask {
+		position: absolute;
+		right: 0;
+		top: 8%;
+		margin: 0 1%;
+		border:0 none;
+		.amountDone {
+			// background-image: url(../images/pDone.png);
+			background-position: 0 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height:100%;
+			.pie, .pieBg {
+				display: none;
+				// position: absolute;
+				// width: 100%;
+				// height: 100%;
+				// @include border-radius(50%);				
+		     }
+		  //    .pie {
+				// clip: rect(0px, 36px, 36px, 0px);
+				// @include transparent($blue, .8);
+				// // transform:rotate(60deg);
+				// z-index: 2;
+		  //    }
+		  //    .pieBg {
+		  //    	// @include transparent(#fff, .3);
+		  //    	z-index: 1;
+		  //    }
+			.footer {
+				margin: 10px -10px 0 -10px;
+			    overflow: hidden;
+			    width: 250px;
+				background-color: lighten($gray, 10%);
+			}
+			.change {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				font-size: .7em;
+				background-color: $gray;
+				line-height: 1.2em;
+				padding: .2em;
+				text-align: center;
+				width: 100%;
+				color: #fff;
+				&:hover {
+					background-color: $green;
+				}
+			}
+			.imgMask {
+				@include border-radius(0); 
+				overflow: visible;
+			}
+			.accountOver {
+				display: none;
+				width: 250px;
+				background-color: #fff;
+				position: fixed;
+				top: 78px;
+				right: 20px;
+				z-index: 99;
+				padding: 10px 10px 0 10px;
+				@include box-shadow(0 0 10px rgba(0,0,0,.4));
+				p {
+					float: right;
+				    padding: 1% 0 4%;
+				    width: 152px;
+				    word-wrap: break-word;
+				}
+				h4 {
+					padding: 4% 4% 0 4%;
+				}
+				.btn {
+					float: left;
+					margin: 4%;
+				}
+				.btn.logOut {
+					float: right;
+				}
+				&:before {
+					@extend %iconDashboardBg;
+					background-position: 99% -362px;
+				    content: "";
+				    height: 40px;
+				    position: absolute;
+				    right: 16px;
+				    top: -14px;
+				    width: 40px;
+				}
+			}
+			&:hover {
+				.accountOver {
+					display: block;
+				}
+			}
+		}
+	}
+	.btn {
+		float: left;
+		margin: .566em 2em;
+		&.logOut {
+			float: right;
+			background-color: $dark-gray;
+			&:hover {
+				background-color: $blue;
+			}
+		}
+	}
+}
+
+// menu
+.menu {
+	top: 78px;
+	left: 100%;
+	width: 0;
+	@include calc($property:height, $variable:100%, $operation:"-", $value:68px, $fallback:100%);
+	list-style: none;
+	text-align: left;
+	overflow: hidden;
+	position: absolute;
+	background-color: lighten($blue, 10%);
+	@extend %width-transition;
+	li {
+		.icon {display: none;}
+		a	{		
+			position: relative;
+			padding: 1em;
+			color: #fff;
+			cursor: pointer;
+			display: block;
+			margin: 0;
+			@include ellipsis();
+			&:first-child {
+				padding: 0;
+			}
+		}
+		&:hover {
+			.bubble {background-color: $red; color: #fff;}
+			a {background-color: $blue;}
+		}
+		h2 {
+			background-color: darken($blue, 14%);
+			width: 100%;
+			color: #fff;
+			font-size: 3em;
+			padding: .2em .4em;
+			font-weight: normal;
+		}
+		.bubble {
+		    float: right;
+		    height: auto;
+		    left: auto;
+		    line-height: 18px;
+		    padding: 0 0.7em;
+		    position: relative;
+		    top: auto;
+		    color: $blue;
+		    background-color: #fff;
+		}
+	}
+}
+
+// Dashboard nav
+.dashNav {
+	width: 10%;
+	height: 100%;
+	float: left;
+	text-align: center;
+	list-style: none;
+	position: relative;
+	.hideMenu {
+		display: none;
+		position: absolute;
+	    right: -234%;
+	    z-index: 7;
+	    transition: right 800ms ease-out, right 300ms ease-in;
+		.icon {
+			background-color:  darken($blue, 20%);
+			background-position: 105% -305px;
+		    cursor: pointer;
+		    height: 3.6em;
+		    width: 3.6em;			
+		}
+		&.closeMenu {
+			right: -3em;
+			.icon {
+				height: 3em;
+		    	width: 3em;
+		    	background-position: 102% -263px;
+		    	background-color:  $blue;
+			}
+		}
+	}
+	.tab {
+		@extend %nthBg;
+		cursor: pointer;
+		width: 100%;
+		padding: 1em 0;
+		display: block;
+		font-size: .8em;
+		text-transform:uppercase;
+		&.logo, &.logo:nth-child(2n+1){
+			background-color: $dark-gray;
+			overflow: hidden;
+			a.icon {
+				height: 58px;
+				width: 56px;
+				margin: 1em auto;
+			}
+		}
+		& > .icon, & > a .icon {
+			display: block;
+			margin: 0 auto;
+			height: 30px;
+			width: 30px;
+			position: relative;
+		}
+		&.active, &:hover {
+			color: #fff;
+			& .lo {background-position: 50% -60px;}
+			& .ml {background-position: 50% -130px;}
+			& .av {background-position: 50% -180px;}
+			& .pb {background-position: 50% -230px;}
+			& .pr {background-position: 50% -280px;}
+			& .nw {background-position: 50% -380px;}
+			& .ha {background-position: 50% -430px;}
+			& .lm {background-position: 50% -480px;}
+			& .ma {background-position: 50% -530px;}
+			// & .menu {width: 234%;}
+		}
+		&.hide {
+			padding: 0;
+		}
+		&:hover {
+			background-color: lighten($blue, 10%);
+			& .menu {
+				z-index: 8;
+			}
+		}
+		& > a {
+			color: $gray;
+			padding: 1em 0;
+			width: 100%;
+			display: block;
+			&:hover {color: #ffffff;}
+		} 
+		&.active {
+			background-color: $blue;
+			& .menu {
+				z-index: 6;
+				background-color: $blue;
+				li:hover a, li.active a{
+					background-color: lighten($blue, 10%);
+				}
+			}
+			// &.aUL {
+			// 	& .menu {width: 234%;}
+			// }
+		}
+	}
+}
+
+
+// dashboard main content
+.dashMain {
+	float: right;
+	width: 90%;
+	padding: 0;
+	position: relative;
+	background-color: $blue;
+	& > h1 {color: #fff;padding: .4em 0;}
+	.products, .heroDesign, .heroDash, .list {
+		background-color: #fff;
+		overflow: hidden;
+		width: 100%;
+		position: relative;
+		& > h1 {padding: .4em;}
+	}
+	.heroDesign, .heroDash {
+		text-align: left;
+		.result {
+			width: 32%;
+			height: 100px;
+			max-width: 400px;
+			float: left;
+			clear: right;
+			padding: 1.5% 2%;
+			@extend %nthBg;
+			@include box-shadow(100px 0 43px 26px rgba(0, 0, 0, 0.6) inset);
+			background-size: cover;
+			cursor: pointer;
+			h3, p {margin:0 0 1% 0;color: #ffffff;}
+			p {display: none;}
+			&.mainHero {
+				width: 68%;
+				max-width: 1000px;
+				float: left;
+				color: #ffffff;
+				font-size: 100%;
+				min-height: 300px;
+				padding: 6% 22% 6% 12%;
+				@include box-shadow(100px 0 140px 100px rgba(0, 0, 0, 0.6) inset);
+				h3 {font-size: 2.2em;}
+				p {font-size: 1.4em; display: block;}
+			}
+			.icon {display: none;}
+			&.mc_membership {background: url(../images/mc-membership.jpg) center center no-repeat;}
+			&.localplus {background: url(../images/premium-cities.jpg) center center no-repeat;}
+			&.google_only {background: url(../images/sem-google.jpg) center center no-repeat;}
+			&.hero_ads {background: url(../images/hero-ads.jpg) center center no-repeat;}
+			&:hover {
+				@include box-shadow(0 0 0 0 rgba(0, 0, 0, 0.6) inset);
+				h3, p {color: $blue; text-shadow:0 0 30px rgba(0,0,0,0.8);}
+			}
+		}
+	}
+}
+
+// 
+
+// product
+.products {
+	height: 100%;
+	h2 {
+		padding: 1%;
+		width: 100%;
+		display: block;
+		float: left;
+	}
+	.result {
+		width: 20%;
+		max-width: 280px;
+		min-width: 206px;
+		min-height: 110px;
+		padding: 1%;
+		float: left;
+		@extend %nthBg;
+		h4 {
+			cursor: pointer;
+			&:hover {
+				color: $blue;
+				text-decoration: underline;
+			}
+		}
+		p {
+			@include ellipsis();
+			line-height: 1.2em;
+			font-size: .8em;
+		}
+		.btn {
+			-webkit-transform: rotateY(360deg);
+		    -moz-transform: rotateY(360deg);
+		    transform: rotateY(360deg);
+			margin: .4em 0 0 0;
+			h3, h5 {display: none;}
+			h4 {display: block;}
+		}
+	}
+}
+
+// store
+.dec-product {
+	width: 0;
+	position: absolute;
+	z-index: 9;
+	right: 0;
+	top: 0;
+	height: 100%;
+	background-color: $main-bg-color;
+	float: right;
+	@extend %width-transition;
+	.close {display: none;}
+	& > .icon {
+		margin: 3% 3% 3% 0;
+		float: left;
+		width: 150px;
+		height: 150px;
+		padding: 0 12%;
+	    border-right: 2px solid $gray-sub;
+	}
+	.btn {float: left;}
+	.hero-ads {
+		padding: 0 0 0 3%;
+		background-color: transparent;
+	}
+	h1 {margin: 4% 0 0 0;}
+	h2 {padding: .2em 0 .4em 0; width:64%; font-weight: normal;}
+	& > h3, & > ul, & > .disclaimer {
+		margin: 0 0 0 3%;
+		clear: left;
+	}
+	h3 {
+		padding: 0 0 .6em 0;
+	}
+	.disclaimer {
+		display: block;
+	    font-style: italic;
+	    margin: 1% 0 0 3%;
+	}
+	& > ul {
+		line-height: 1.8em;
+		clear: both;
+		&.not-list {
+			list-style: none;
+		}
+	}
+}
+
+.products, .heroDesign, .heroDash, .list {
+	float: right;
+	@extend %width-transition;
+	@extend %mainSections;
+}
+
+.full {
+	width: 100%; 
+	@extend %mainSections;
+	.close {display: block;}
+}
+
+%width-transition {transition: width 300ms;}
+
+.open, .click {
+	%mainSections {width: 74%;}
+	.menu {width: 234%;}
+	.products .result {width: 33.33%;}
+}
+
+// home
+.home {
+	background-color: $main-bg-color;
+	overflow: hidden;
+	float: right;
+	width: 100%;
+	@extend %width-transition;
+	@extend %mainSections;
+	.result {
+		@extend %nthBg-dash;
+		width:31.33%;
+		max-width: 300px;
+		float: left;
+		margin: 1% 0 0 1%;
+		.bubble {
+			height: 20px;
+		    line-height: 20px;
+		    min-width: 24px;
+		    padding: 0 8px;
+		}
+		& > .icon {
+			margin: 14% auto;
+			background-position: center 29%;
+   			background-size: 100% auto;
+		    display: block;
+		    position: relative;
+		    height: 80px;
+		    width: 140px;
+		}
+		h2 {
+			font-size: 140%;
+			padding: 4%;
+			background-color: $gray;
+			color: $main-bg-color;
+			font-weight: normal;
+			text-align: center;
+		}
+		p {
+			line-height: 1.4em;
+			border-left-style:solid;
+			border-width:6px;
+			padding: 2% 4%;
+			background-color: lighten($gray, 52%);
+		}
+		&:nth-child(5) {
+			clear: left;
+		}
+		&.ha {& > .icon {background-position: center 35%;} p {border-color: $green;}}
+	    &.lm {& > .icon {background-position: center 41%;} p {border-color: $orange;}}
+	    &.gp {& > .icon {background-position: center 47%;} p {border-color: $red;}}
+	    &.gb {& > .icon {background-position: center 52%;} p {border-color: $blue;}}
+	    &.bl {& > .icon {background-position: center 57%;} p {border-color: $green;}}
+	    &.co {& > .icon {background-position: center 62%;} p {border-color: $orange;}}
+	    &.cc {& > .icon {background-position: center 67%;} p {border-color: $blue;}}
+	    &.status {
+	    	p {
+	    		border-left: 6px solid $blue;
+		    	&:nth-child(2n+1) {
+					border-left: 6px solid lighten($blue, 10%);
+					background-color: lighten($gray, 58%);
+				}
+			}
+	    }
+	}
+	.myScore {
+		width: 6%;
+		max-width: 140px;
+		float: right;
+		padding: 1%;
+		background-color: $gray;
+		text-align: center;
+		position: fixed;
+		right: 0;
+		margin: .67% 0 0 0;
+		@include box-shadow(0 0 10px rgba(0,0,0,.3));
+		.icon {
+			background-position: 100% -420px;
+		    height: 24px;
+		    width: 42px;
+		}
+		h4 {
+			color: $blue;
+			font-size: 3em;			
+		}
+		span {
+			display: block;
+			font-size: .8em;
+			color: #fff;
+		}
+	}
+}
+
+.overlay {
+	#ccState {width: 20%;}
+	.toolTip {
+		width: 49%;
+		margin: 0 2% 2% 0;
+		.icon {display: none;}
+		// &:nth-child(2n+1) {
+		// 	margin: 0 0 2% 0;
+		// }
+		// &:nth-child(8n) {
+		// 	width: 20%;
+		// }
+		&.tError {
+			.icon {display: inline-block;}
+		}
+		&.required {
+	    	&:before {
+	    		color: lighten($red, 20%);
+	    	}
+	    }
+		
+	}
+}
+
+// .products .result
+.products .result, .overlay, .heroDash  {
+	& > .icon {
+		background-position: 18px 18px;
+		background-color: transparent;
+		width: 70px;
+		height: 70px;
+		float: left;
+		margin: 0 6% 0 0;
+	}
+}
+
+.dec-product {
+	& .mc_membership.icon {background-position: center -601px;}
+	& .localplus.icon {background-position: center -872px;}
+	& .domain_name_resell.icon {background-position: center -1152px;}
+	& .membership_Ultimate.icon {background-position: center -1443px;}
+	& .membership_Premium.icon {background-position: center -1720px;}
+	& .membership_Standard.icon {background-position: center -2003px;}
+	& .membership_Starter.icon {background-position: center -2282px;}
+	& .google_only.icon {background-position: center -2562px;}
+	& .mc_verified.icon {background-position: center -2834px;}
+	& .p10.icon {background-position: center -3123px;}
+	& .local_sponsor.icon {background-position: center -3394px;}
+	& .local_directory.icon {background-position: center -3674px;}
+	& .adealio_campaign.icon {background-position: center -3976px;}
+	& .hero_ads.icon {background-position: center -4242px;}
+	& .no_ads.icon {background-position: center -3393px;}
+	& .reply_local_marketer.icon {background-position: center -4795px;}
+}
+
+.overlay {
+	&.card {
+		h3, p {
+			float: left;
+    		width: 80%;
+    		clear: none;
+		}
+	}
+	&.mc_membership .icon {background-position: center -775px;}
+	&.localplus .icon {background-position: center -1052px;}
+	&.domain_name_resell .icon {background-position: center -1332px;}
+	&.membership_Ultimate .icon {background-position: center -1616px;}
+	&.membership_Premium .icon {background-position: center -1896px;}
+	&.membership_Standard .icon {background-position: center -2176px;}
+	&.membership_Starter .icon {background-position: center -2456px;}
+	&.google_only .icon {background-position: center -2736px;}
+	&.mc_verified .icon {background-position: center -3013px;}
+	&.p10 .icon {background-position: center -3297px;}
+	&.local_sponsor .icon {background-position: center -3574px;}
+	&.local_directory .icon {background-position: center -3853px;}
+	&.adealio_campaign .icon {background-position: center -4145px;}
+	&.hero_ads .icon {background-position: center -4418px;}
+	&.no_ads .icon {background-position: center -3574px;}
+	&.reply_local_marketer .icon {background-position: center -4974px;}
+}
+
+.products .result {
+	&.mc_membership { & > .icon {background-position: center -775px;}}
+	&.localplus { & > .icon {background-position: center -1052px;}}
+	&.domain_name_resell { & > .icon {background-position: center -1332px;}}
+	&.membership_Ultimate { & > .icon {background-position: center -1616px;}}
+	&.membership_Premium { & > .icon {background-position: center -1896px;}}
+	&.membership_Standard { & > .icon {background-position: center -2176px;}}
+	&.membership_Starter { & > .icon {background-position: center -2456px;}}
+	&.google_only { & > .icon {background-position: center -2736px;}}
+	&.mc_verified { & > .icon {background-position: center -3013px;}}
+	&.p10 { & > .icon {background-position: center -3297px;}}
+	&.local_sponsor { & > .icon {background-position: center -3574px;}}
+	&.local_directory { & > .icon {background-position: center -3853px;}}
+	&.adealio_campaign { & > .icon {background-position: center -4145px;}}
+	&.hero_ads { & > .icon {background-position: center -4418px;}}
+	&.no_ads { & > .icon {background-position: center -3574px;}}
+	&.reply_local_marketer { & > .icon {background-position: center -4974px;}}
+}
+
+
+// ------------------------------------->
